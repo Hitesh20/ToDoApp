@@ -1,0 +1,11 @@
+
+<div class="mb-3">
+    <div class="card">
+        <div class="card-header bg-light">{{ note.title }}</div>
+        <div class="card-body">{{ note.content }}</div> 
+        <div class="card-footer bg-light">
+            <button class="btn btn-danger" ng-click="deleteNote(index)">Delete</button>
+            <button class="btn btn-warning" ng-click="editNote(note, index)">Edit</button>
+        </div>
+    </div>
+</div>    

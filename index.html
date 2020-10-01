@@ -1,0 +1,59 @@
+
+<!doctype html>
+<html lang="en" ng-app="notesApplication">
+    <head>
+
+        <title>Notes Application</title>
+        <!--Angular JS-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+        <!--Styling-->
+        <link rel="stylesheet" href="app.css" />
+
+        <!--Bootstrap files-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+        <!--Angular JS Files-->
+        <script src="app.module.js"></script>
+        <script src="app.component.js"></script>
+
+        <!--Note Files-->
+        <script src="note/note.module.js"></script>
+        <script src="note/note.component.js"></script>
+        <script src="note/note.controller.js"></script>
+        
+
+    </head>
+
+    <body>
+
+        <div class="container">
+
+            <h1 class="text-center mt-3">Keep Your Notes Here</h1>
+
+            <div class="mt-5 mb-5" ng-controller="notesController">
+                <form name="frm">
+                    <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" placeholder="Enter Title" ng-model="note.title">
+                    </div>
+                    <div class="form-group">
+                    <label for="content">Content</label>
+                    <textarea type="text" class="form-control" placeholder="Enter Content" ng-model="note.content" rows="10" cols="40"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-danger w-25 mr-5" ng-click="discardNote()">Discard</button>
+                    <button type="submit" class="btn btn-success w-25 ml-5" ng-click="saveNote()">Save</button>
+                </form> 
+                <div class="row mt-3">
+                    <note ng-repeat="note in allNotes track by $index" index="$index" note='note' class="col-sm-4"></note>
+                </div>
+            </div>
+            
+
+        </div>
+
+    </body>
+</html>
